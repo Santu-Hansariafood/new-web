@@ -1,0 +1,48 @@
+{
+    "teamMembers": [
+      {
+        "name": "John Doe",
+        "designation": "Software Engineer",
+        "photo": "/path-to-photo.jpg",
+        "linkedin": "https://linkedin.com/in/johndoe",
+        "facebook": "https://facebook.com/johndoe",
+        "youtube": "https://youtube.com/johndoe",
+        "instagram": "https://instagram.com/johndoe"
+      },
+      {
+        "name": "Jane Smith",
+        "designation": "Project Manager",
+        "photo": "/path-to-photo.jpg",
+        "linkedin": "https://linkedin.com/in/janesmith",
+        "facebook": "https://facebook.com/janesmith",
+        "youtube": "https://youtube.com/janesmith",
+        "instagram": "https://instagram.com/janesmith"
+      },
+      {
+        "name": "Bob Johnson",
+        "designation": "UX Designer",
+        "photo": "/path-to-photo.jpg",
+        "linkedin": "https://linkedin.com/in/bobjohnson",
+        "facebook": "https://facebook.com/bobjohnson",
+        "youtube": "https://youtube.com/bobjohnson",
+        "instagram": "https://instagram.com/bobjohnson"
+      }
+    ],
+    "jobOpenings": [
+      {
+        "title": "Frontend Developer",
+        "designation": "Developer",
+        "numberOfOpenings": 3,
+        "description": "We are looking for a skilled frontend developer.",
+        "status": "open"
+      },
+      {
+        "title": "Backend Developer",
+        "designation": "Developer",
+        "numberOfOpenings": 2,
+        "description": "We are looking for a skilled backend developer.",
+        "status": "closed"
+      }
+    ]
+  }
+  
