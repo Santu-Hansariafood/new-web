@@ -7,6 +7,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import logo from "../../../Images/Logo/Hansaria-Logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-gray-800 text-white py-6">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <img src="/path/to/logo.png" alt="Logo" className="h-12 mb-4 md:mb-0" />
+        <img src={logo} alt="Logo" className="h-12 mb-4 md:mb-0" />
         <div className="w-full md:w-auto flex flex-col md:flex-row justify-between items-start mb-4 md:mb-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex flex-col space-y-1">
@@ -168,8 +169,10 @@ const Footer = () => {
       <div className="container mx-auto text-center py-6">
         <hr className="border-t border-gray-700 mb-4" />
         <p className="text-sm">
-          All rights reserved. &copy; {currentYear} Hansaria Food Private
-          Limited.
+          <span className="text-green-500">All rights reserved.</span>
+          <span className="text-yellow-500">&copy; {currentYear}</span>
+          <span className="text-green-500"> Hansaria Food</span>
+          <span className="text-yellow-500"> Private Limited.</span>
         </p>
       </div>
     </footer>

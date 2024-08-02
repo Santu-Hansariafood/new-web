@@ -38,7 +38,8 @@ const GrowthAndDevelopment = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-8">MARKETING STRATEGY</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">
+        <span className='text-green-500'>MARKETING</span>{" "} <span className='text-yellow-500'>STRATEGY</span></h1>
       <p className="text-center text-lg text-gray-600 mb-12">MAIN ASPECTS TO ENSURE EFFECTIVENESS</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
         {strategies.map((strategy, index) => (

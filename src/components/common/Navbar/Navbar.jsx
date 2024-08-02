@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import { useLocation, Link } from "react-router-dom";
-import logo from "../../../Images/Logo/Hansaria-Logo.png"
+import logo from "../../../Images/Logo/Hansaria-Logo.png";
 
 const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
   const location = useLocation();
@@ -40,7 +40,7 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
     <nav className="bg-gray-800 dark:bg-gray-900 text-white dark:text-gray-200 w-full fixed top-0 z-50 flex flex-col md:flex-row justify-between items-center p-4">
       <div className="flex items-center justify-between w-full md:w-auto">
         <Link to="/" className="text-2xl font-bold">
-          <img src={logo} alt="Logo" className="h-10 w-15"/>
+          <img src={logo} alt="Logo" className="h-10 w-15" />
         </Link>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -52,10 +52,11 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
 
       <div
         className={`flex flex-col md:flex-row md:space-x-8 md:items-center w-full md:w-auto transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? "transform translate-x-0" : "transform -translate-x-full md:translate-x-0"
-        }`}
+          mobileMenuOpen ? "h-screen transform translate-y-0" : "h-0 transform -translate-y-full md:translate-y-0"
+        } md:h-auto md:translate-y-0 md:overflow-visible overflow-hidden`}
+        style={{ paddingRight: mobileMenuOpen ? "1rem" : "0" }} // Added padding for mobile
       >
-        <div className="flex flex-col md:flex-row md:space-x-8 md:items-center w-full md:w-auto">
+        <div className="flex flex-col md:flex-row md:space-x-8 md:items-center w-full md:w-auto mt-4 md:mt-0">
           <Link to="/home" className={`px-3 py-2 ${isActive("/home") ? "underline" : ""}`}>
             Home
           </Link>
@@ -129,7 +130,7 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
                   Broken Rice
                 </Link>
                 <Link to="/products/category5" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600">
-                  added more
+                  Added More
                 </Link>
               </div>
             )}

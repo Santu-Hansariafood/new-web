@@ -18,15 +18,15 @@ const Teams = () => {
 
   return (
     <div className="leaders-container">
-      <div className="top-photo bg-gray-300 h-72 flex items-center justify-center">
+      <div className="top-photo bg-gray-300 h-72 w-full flex items-center justify-center">
         <img
           src={teamsmember}
           alt="Team Hansaria"
-          className="object-contain h-full"
+          className="object-cover w-full h-full"
         />
       </div>
-      <h2 className="text-3xl font-bold text-center my-8 underline">
-        Meet Our Teams
+      <h2 className="text-3xl font-bold text-center my-8">
+        <span className="text-green-500">Meet Our</span> <span className="text-yellow-500">Teams</span>
       </h2>
       <div className="team-members p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

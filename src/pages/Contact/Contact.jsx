@@ -1,9 +1,23 @@
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { useSpring, animated } from "@react-spring/web";
 import ContactCover from "../../Images/Contact/contact.gif";
-import logo from "../../Images/Logo/Hansaria-Logo.png"
+import logo from "../../Images/Logo/Hansaria-Logo.png";
 
 const Contact = () => {
+  const animationProps = useSpring({
+    from: { opacity: 0, transform: "translate3d(0,-20px,0)" },
+    to: { opacity: 1, transform: "translate3d(0,0px,0)" },
+  });
+
+  const branchOffices = [
+    { name: "Branch Office 1", address: "City, State, ZIP" },
+    { name: "Branch Office 2", address: "City, State, ZIP" },
+    { name: "Branch Office 3", address: "City, State, ZIP" },
+    { name: "Branch Office 4", address: "City, State, ZIP" },
+    { name: "Branch Office 5", address: "City, State, ZIP" },
+  ];
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-green-100">
       <div
@@ -12,17 +26,14 @@ const Contact = () => {
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-5xl font-bold">
-            Contact Us
+            <span className="text-green-500">Contact</span>{" "}
+            <span className="text-yellow-500">Us</span>
           </h1>
         </div>
       </div>
       <div className="w-full p-6 flex flex-col md:flex-row items-center md:items-start">
         <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-          <img
-            src={logo}
-            alt="Placeholder"
-            className="rounded-lg shadow-lg"
-          />
+          <img src={logo} alt="Placeholder" className="rounded-lg shadow-lg" />
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start p-4">
           <p className="text-lg md:text-xl text-gray-700">
@@ -32,28 +43,95 @@ const Contact = () => {
           </p>
         </div>
       </div>
-      <div className="w-full p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10">
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start p-4 bg-green-600 text-white relative z-20">
-          <div className="mb-4 flex items-center">
-            <FaMapMarkerAlt className="mr-2" />
+
+      <div className="w-full p-6 flex flex-col items-center justify-center">
+        <h2 className="text-3xl font-bold text-green-600 mb-4">Head Office</h2>
+        <animated.div
+          style={animationProps}
+          className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-3/4 lg:w-2/3"
+        >
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/2 p-4">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=69A+Satish+Mukherjee+Road+Kolkata+West+Bengal+700026"
+                width="100%"
+                height="250"
+                frameBorder="0"
+                style={{ border: "2px solid #4CAF50", borderRadius: "10px" }}
+                allowFullScreen=""
+                aria-hidden="false"
+                tabIndex="0"
+              ></iframe>
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col justify-center p-4">
+              <div className="flex items-center text-green-600 mb-4">
+                <FaMapMarkerAlt className="mr-2 text-yellow-500" />
+                <span className="font-bold">
+                  69A, Satish Mukherjee Road, Kolkata, West Bengal 700026
+                </span>
+              </div>
+              <div className="flex items-center text-green-600 mb-2">
+                <FaPhoneAlt className="mr-2 text-yellow-500" />
+                <span>+91 33 2466 2179</span>
+              </div>
+              <div className="flex items-center text-green-600 mb-2">
+                <FaPhoneAlt className="mr-2 text-yellow-500" />
+                <span>+91 33 2466 2180</span>
+              </div>
+              <div className="flex items-center text-green-600 mb-2">
+                <FaPhoneAlt className="mr-2 text-yellow-500" />
+                <span>Customer care: +91 9073328273</span>
+              </div>
+              <div className="flex items-center text-green-600">
+                <FaEnvelope className="mr-2 text-yellow-500" />
+                <span>info@hansariafood.in</span>
+              </div>
+            </div>
+          </div>
+        </animated.div>
+      </div>
+
+      <div className="w-full p-6 flex flex-col items-center justify-center">
+        <h2 className="text-3xl font-bold text-green-600 mb-4">Branch Offices</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+          {branchOffices.map((branch, index) => (
+            <animated.div
+              key={index}
+              style={animationProps}
+              className="bg-white p-4 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            >
+              <div className="flex items-center text-green-600 mb-2">
+                <FaMapMarkerAlt className="mr-2 text-yellow-500" />
+                <span className="font-bold">{branch.name}</span>
+              </div>
+              <p className="text-gray-700">{branch.address}</p>
+            </animated.div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10 min-h-full">
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start p-4 bg-green-600 text-white relative z-20 h-full">
+          <animated.div style={animationProps} className="mb-4 flex items-center">
+            <FaMapMarkerAlt className="mr-2 text-yellow-500" />
             <span>69A, Satish Mukherjee Road, Kolkata, West Bengal 700026</span>
-          </div>
-          <div className="mb-4 flex items-center">
-            <FaPhoneAlt className="mr-2" />
+          </animated.div>
+          <animated.div style={animationProps} className="mb-4 flex items-center">
+            <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>+91 33 2466 2179</span>
-          </div>
-          <div className="mb-4 flex items-center">
-            <FaPhoneAlt className="mr-2" />
+          </animated.div>
+          <animated.div style={animationProps} className="mb-4 flex items-center">
+            <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>+91 33 2466 2180</span>
-          </div>
-          <div className="mb-4 flex items-center">
-            <FaPhoneAlt className="mr-2" />
+          </animated.div>
+          <animated.div style={animationProps} className="mb-4 flex items-center">
+            <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>Customer care: +91 9073328273</span>
-          </div>
-          <div className="flex items-center">
-            <FaEnvelope className="mr-2" />
+          </animated.div>
+          <animated.div style={animationProps} className="flex items-center">
+            <FaEnvelope className="mr-2 text-yellow-500" />
             <span>info@hansariafood.in</span>
-          </div>
+          </animated.div>
         </div>
         <div className="w-full md:w-1/2 p-4 relative z-20">
           <h2 className="text-3xl font-bold text-green-600 mb-4">
@@ -61,42 +139,23 @@ const Contact = () => {
           </h2>
           <form className="space-y-4">
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <input
-                type="text"
-                placeholder="Enquiry Types"
-                className="border p-2 rounded w-full"
-              />
-              <input
-                type="text"
-                placeholder="Name"
-                className="border p-2 rounded w-full"
-              />
+              <select className="border p-2 rounded w-full" defaultValue="Enquiry Type">
+                <option value="Enquiry Type" disabled>Enquiry Type</option>
+                <option value="General">General</option>
+                <option value="Sales">Sales</option>
+                <option value="Support">Support</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Other">Other</option>
+              </select>
+              <input type="text" placeholder="Name" className="border p-2 rounded w-full" />
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="border p-2 rounded w-full"
-              />
-              <input
-                type="text"
-                placeholder="Phone No."
-                className="border p-2 rounded w-full"
-              />
+              <input type="email" placeholder="Email" className="border p-2 rounded w-full" />
+              <input type="text" placeholder="Phone No." className="border p-2 rounded w-full" />
             </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="border p-2 rounded w-full"
-            />
-            <textarea
-              placeholder="Write your message here.."
-              className="border p-2 rounded w-full h-32"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-green-600 text-white py-2 px-4 rounded"
-            >
+            <input type="text" placeholder="Subject" className="border p-2 rounded w-full" />
+            <textarea placeholder="Write your message here.." className="border p-2 rounded w-full h-32"></textarea>
+            <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 hover:text-yellow-500 transition-colors duration-300">
               Submit
             </button>
           </form>
