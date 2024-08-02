@@ -159,7 +159,7 @@ const Footer = () => {
               placeholder="subscribe@email.com"
               className="px-4 py-2 rounded-md text-gray-800 w-full sm:w-auto"
             />
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full sm:w-auto">
+            <button className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 w-full sm:w-auto">
               Subscribe
             </button>
           </div>

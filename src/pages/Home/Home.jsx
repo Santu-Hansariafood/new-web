@@ -5,6 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import About from "../About/About";
 import Contact from "../Contact/Contact";
 import Career from "../Career/Career";
+import slide1 from "../../Images/Slides/slide-1.jpg";
+import slide2 from "../../Images/Slides/slide-2.jpg";
+import slide3 from "../../Images/Slides/slide-3.jpg";
+import slide4 from "../../Images/Slides/slide-4.jpg";
+import slide5 from "../../Images/Slides/slide-5.jpg";
+import "./Home.css";
 
 const Home = () => {
   const sliderSettings = {
@@ -15,28 +21,40 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    customPaging: (i) => (
+      <div className="custom-dot">
+        <span className="custom-dot-inner"></span>
+      </div>
+    ),
+    appendDots: (dots) => <ul>{dots}</ul>,
   };
 
   const slides = [
     {
-      img: "https://via.placeholder.com/800x400.png?text=Slide+1",
+      img: slide1,
       text: "High Quality Grains for the Nation",
+      quote:
+        "We take pride in producing the highest quality seeds for optimised yields.",
     },
     {
-      img: "https://via.placeholder.com/800x400.png?text=Slide+2",
+      img: slide2,
       text: "Innovative Agricultural Practices",
+      quote: "Innovation is at the heart of our farming practices.",
     },
     {
-      img: "https://via.placeholder.com/800x400.png?text=Slide+3",
+      img: slide3,
       text: "Sustainable Farming Solutions",
+      quote: "Sustainability drives our approach to agriculture.",
     },
     {
-      img: "https://via.placeholder.com/800x400.png?text=Slide+4",
+      img: slide4,
       text: "Optimized Yield for Every Seed",
+      quote: "Maximizing yield, one seed at a time.",
     },
     {
-      img: "https://via.placeholder.com/800x400.png?text=Slide+5",
+      img: slide5,
       text: "Pioneering Agricultural Techniques",
+      quote: "Leading the way with pioneering techniques.",
     },
   ];
 
@@ -52,17 +70,16 @@ const Home = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8 md:p-16 lg:p-24">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                  Filling The Bowls Of Our Nation
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-slide-in">
+                  {slide.text}
                 </h1>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-green-400 font-bold">
-                  With Best Quality Grains
+                <h2 className="text-xl md:text-2xl lg:text-3xl text-green-400 font-bold animate-slide-in">
+                  {slide.quote}
                 </h2>
-                <p className="mt-4 mb-6 text-sm md:text-lg lg:text-xl">
-                  We take pride in producing the highest quality seeds for
-                  optimised yields.
+                <p className="mt-4 mb-6 text-sm md:text-lg lg:text-xl animate-slide-in">
+                  {slide.quote}
                 </p>
-                <button className="mt-6 bg-green-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-sm md:text-base">
+                <button className="mt-6 bg-green-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-sm md:text-base hover:bg-yellow-500 hover:text-green-500 transition-colors duration-300">
                   Discover Now
                 </button>
               </div>

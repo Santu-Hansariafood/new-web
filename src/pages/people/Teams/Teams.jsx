@@ -4,32 +4,25 @@ import {
   FaFacebook,
   FaInstagram,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
+import data from "../../../data/data.json";
+import teamsmember from "../../../Images/Team/teams.gif";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    fetch("../../../data/teams.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => setTeams(data))
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
+    setTeams(data.teamMembers);
   }, []);
 
   return (
     <div className="leaders-container">
-      <div className="top-photo bg-gray-300 h-1/3">
+      <div className="top-photo bg-gray-300 h-72 flex items-center justify-center">
         <img
-          src="https://via.placeholder.com/1200x400"
-          alt="Company Leadership"
-          className="w-full h-full object-cover"
+          src={teamsmember}
+          alt="Team Hansaria"
+          className="object-contain h-full"
         />
       </div>
       <h2 className="text-3xl font-bold text-center my-8 underline">
@@ -37,9 +30,9 @@ const Teams = () => {
       </h2>
       <div className="team-members p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {teams.map((team) => (
+          {teams.map((team, index) => (
             <div
-              key={team.id}
+              key={index}
               className="team-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105"
             >
               <img
@@ -52,53 +45,74 @@ const Teams = () => {
                   {team.name}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-400">
-                  {team.position}
+                  {team.designation}
                 </p>
                 <div className="flex justify-between mt-4">
-                  <a
-                    href={team.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
-                  >
-                    <FaLinkedin
-                      size={24}
-                      className="hover:scale-125 transition-transform duration-300"
-                    />
-                  </a>
-                  <a
-                    href={team.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
-                  >
-                    <FaFacebook
-                      size={24}
-                      className="hover:scale-125 transition-transform duration-300"
-                    />
-                  </a>
-                  <a
-                    href={team.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pink-600 hover:text-pink-800 dark:hover:text-pink-400"
-                  >
-                    <FaInstagram
-                      size={24}
-                      className="hover:scale-125 transition-transform duration-300"
-                    />
-                  </a>
-                  <a
-                    href={team.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-800 dark:hover:text-green-400"
-                  >
-                    <FaWhatsapp
-                      size={24}
-                      className="hover:scale-125 transition-transform duration-300"
-                    />
-                  </a>
+                  {team.linkedin && (
+                    <a
+                      href={team.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
+                    >
+                      <FaLinkedin
+                        size={24}
+                        className="hover:scale-125 transition-transform duration-300"
+                      />
+                    </a>
+                  )}
+                  {team.facebook && (
+                    <a
+                      href={team.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
+                    >
+                      <FaFacebook
+                        size={24}
+                        className="hover:scale-125 transition-transform duration-300"
+                      />
+                    </a>
+                  )}
+                  {team.instagram && (
+                    <a
+                      href={team.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-pink-600 hover:text-pink-800 dark:hover:text-pink-400"
+                    >
+                      <FaInstagram
+                        size={24}
+                        className="hover:scale-125 transition-transform duration-300"
+                      />
+                    </a>
+                  )}
+                  {team.youtube && (
+                    <a
+                      href={team.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-red-600 hover:text-red-800 dark:hover:text-red-400"
+                    >
+                      <FaYoutube
+                        size={24}
+                        className="hover:scale-125 transition-transform duration-300"
+                      />
+                    </a>
+                  )}
+                  {team.whatsapp && (
+                    <a
+                      href={team.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-800 dark:hover:text-green-400"
+                    >
+                      <FaWhatsapp
+                        size={24}
+                        className="hover:scale-125 transition-transform duration-300"
+                      />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

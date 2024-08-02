@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import { useLocation, Link } from "react-router-dom";
+import logo from "../../../Images/Logo/Hansaria-Logo.png"
 
 const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
   const location = useLocation();
@@ -39,7 +40,7 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
     <nav className="bg-gray-800 dark:bg-gray-900 text-white dark:text-gray-200 w-full fixed top-0 z-50 flex flex-col md:flex-row justify-between items-center p-4">
       <div className="flex items-center justify-between w-full md:w-auto">
         <Link to="/" className="text-2xl font-bold">
-          HFood
+          <img src={logo} alt="Logo" className="h-10 w-15"/>
         </Link>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

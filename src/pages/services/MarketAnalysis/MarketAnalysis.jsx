@@ -1,13 +1,19 @@
-import React from 'react';
-import 'tailwindcss/tailwind.css';
+import React from "react";
+import "tailwindcss/tailwind.css";
+import market from "../../../Images/services/market.jpg";
 
 const MarketAnalysis = () => {
   return (
-    <div className="relative p-6 bg-gray-100 font-sans">
-      <div className="relative w-full h-64 bg-gray-300 flex items-center justify-center mb-4">
-        <span>Placeholder Image</span>
+    <div className="relative bg-gray-100 font-sans">
+      <div className="relative w-full h-80 bg-gray-300 flex items-center justify-center mb-4">
+        <img
+          src={market}
+          alt="comodity"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        />
         <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-green-700 text-white py-2 px-4 rounded">
-          <span>Services</span> / <span className="font-bold">Top Notch Commodity Trading</span>
+          <span>Services</span> /{" "}
+          <span className="font-bold text-yellow-500">Top Notch Commodity Trading</span>
         </div>
       </div>
       <div className="content bg-white p-6 rounded shadow-lg">
@@ -15,10 +21,15 @@ const MarketAnalysis = () => {
           Strategies To Select A Good Portfolio Management Service
         </h1>
         <p className="text-gray-700 mt-2">
-          Based on your investment objective and requirements, the professional manager will create a diversified portfolio by investing in different commodities in corporate and individual firms which have good ratings in India.
+          Based on your investment objective and requirements, the professional
+          manager will create a diversified portfolio by investing in different
+          commodities in corporate and individual firms which have good ratings
+          in India.
         </p>
         <p className="text-gray-700 mt-2">
-          Hansaria Food Pvt Ltd (HFPL) deals with authentic buyers and sellers who continue to stand with any bargain done even when there is a variation in the market rate.
+          Hansaria Food Pvt Ltd (HFPL) deals with authentic buyers and sellers
+          who continue to stand with any bargain done even when there is a
+          variation in the market rate.
         </p>
       </div>
     </div>

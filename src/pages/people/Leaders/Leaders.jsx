@@ -5,26 +5,24 @@ import {
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
+import { useSpring, animated } from "@react-spring/web";
+import data from "../../../data/data.json";
 
 const Leaders = () => {
-  const [teams, setTeams] = useState([]);
+  const [leaders, setLeaders] = useState([]);
 
   useEffect(() => {
-    fetch("../../../data/teams.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => setTeams(data))
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
+    setLeaders(data.leaders);
   }, []);
 
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 1000 },
+  });
+
   return (
-    <div className="leaders-container">
+    <animated.div style={fadeIn} className="leaders-container">
       <div className="top-photo bg-gray-300 h-1/3">
         <img
           src="https://via.placeholder.com/1200x400"
@@ -37,26 +35,27 @@ const Leaders = () => {
       </h2>
       <div className="team-members p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {teams.map((team) => (
-            <div
-              key={team.id}
-              className="team-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105"
+          {leaders.map((leader) => (
+            <animated.div
+              key={leader.id}
+              className="team-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105"
+              style={fadeIn}
             >
               <img
-                src={team.photo}
-                alt={team.name}
+                src={leader.photo}
+                alt={leader.name}
                 className="w-full h-60 object-cover"
               />
-              <div className="p-4">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  {team.name}
+              <div className="overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center">
+                <h3 className="text-lg font-bold text-white">
+                  {leader.name}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-400">
-                  {team.position}
+                <p className="text-gray-300">
+                  {leader.position}
                 </p>
-                <div className="flex justify-between mt-4">
+                <div className="flex space-x-4 mt-4">
                   <a
-                    href={team.linkedin}
+                    href={leader.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
@@ -67,7 +66,7 @@ const Leaders = () => {
                     />
                   </a>
                   <a
-                    href={team.facebook}
+                    href={leader.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400"
@@ -78,7 +77,7 @@ const Leaders = () => {
                     />
                   </a>
                   <a
-                    href={team.instagram}
+                    href={leader.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-pink-600 hover:text-pink-800 dark:hover:text-pink-400"
@@ -89,7 +88,7 @@ const Leaders = () => {
                     />
                   </a>
                   <a
-                    href={team.whatsapp}
+                    href={leader.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-600 hover:text-green-800 dark:hover:text-green-400"
@@ -101,11 +100,11 @@ const Leaders = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </animated.div>
           ))}
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 

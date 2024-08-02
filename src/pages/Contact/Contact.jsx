@@ -1,12 +1,14 @@
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import ContactCover from "../../Images/Contact/contact.gif";
+import logo from "../../Images/Logo/Hansaria-Logo.png"
 
 const Contact = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-green-100">
       <div
         className="relative w-full h-64 bg-cover bg-center"
-        style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}
+        style={{ backgroundImage: `url(${ContactCover})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-5xl font-bold">
@@ -14,10 +16,10 @@ const Contact = () => {
           </h1>
         </div>
       </div>
-      <div className="container mx-auto p-6 flex flex-col md:flex-row items-center md:items-start">
+      <div className="w-full p-6 flex flex-col md:flex-row items-center md:items-start">
         <div className="w-full md:w-1/2 flex items-center justify-center p-4">
           <img
-            src="https://via.placeholder.com/150"
+            src={logo}
             alt="Placeholder"
             className="rounded-lg shadow-lg"
           />
@@ -30,7 +32,7 @@ const Contact = () => {
           </p>
         </div>
       </div>
-      <div className="container mx-auto p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10">
+      <div className="w-full p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10">
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start p-4 bg-green-600 text-white relative z-20">
           <div className="mb-4 flex items-center">
             <FaMapMarkerAlt className="mr-2" />

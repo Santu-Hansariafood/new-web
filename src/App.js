@@ -38,7 +38,7 @@ const App = () => {
           language={language}
           toggleLanguage={toggleLanguage}
         />
-        <div className="pt-20 p-4"> {/* Added pt-20 to account for the fixed Navbar */}
+        <div className="pt-20">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
