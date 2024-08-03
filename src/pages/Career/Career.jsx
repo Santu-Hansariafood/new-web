@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa";
 import teamData from "../../data/data.json";
+import LazyImage from "../../components/common/LazyImage/LazyImage"
 
 const Career = () => {
   const [data, setData] = useState({ teamMembers: [], jobOpenings: [] });
@@ -19,7 +20,7 @@ const Career = () => {
         {data.teamMembers.map((member, index) => (
           <div key={index} className="w-full md:w-1/3 p-4">
             <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img
+              <LazyImage
                 src={member.photo}
                 alt={member.name}
                 className="w-full h-48 object-cover"

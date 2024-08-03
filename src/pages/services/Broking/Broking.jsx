@@ -1,12 +1,13 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 import brokerage from "../../../Images/services/brokerage.jpg";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const Broking = () => {
   return (
     <div className="relative bg-gray-100 font-sans">
       <div className="relative w-full h-96 bg-gray-300 flex items-center justify-center mb-4">
-        <img
+        <LazyImage
           src={brokerage}
           alt="comodity"
           className="absolute top-0 left-0 w-full h-full object-cover"

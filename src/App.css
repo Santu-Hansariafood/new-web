@@ -1,45 +1,52 @@
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
 .leaders-container {
-    animation: slideIn 1s ease-out;
+  animation: slideIn 1s ease-out;
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-
 
 .client-card.flip {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-
-
-/* FarmerPresentation.css */
 
 body {
   font-family: 'Arial', sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Georgia', serif;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #2d3748; /* Tailwind gray-800 */
+  color: #2d3748;
 }
 
 .text-content {
   max-width: 700px;
   margin: 0 auto;
   font-size: 1rem;
-  color: #4a5568; /* Tailwind gray-600 */
+  color: #4a5568;
 }
 
 .image-container img {
@@ -54,4 +61,13 @@ h1, h2 {
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lazy {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazy-loaded {
+  opacity: 1;
 }

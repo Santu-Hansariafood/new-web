@@ -8,6 +8,7 @@ import {
 import { useSpring, animated } from "@react-spring/web";
 import ContactCover from "../../Images/Contact/contact.gif";
 import logo from "../../Images/Logo/Hansaria-Logo.png";
+import LazyImage from "../../components/common/LazyImage/LazyImage";
 
 const Contact = () => {
   const animationProps = useSpring({
@@ -38,7 +39,11 @@ const Contact = () => {
       </div>
       <div className="w-full p-6 flex flex-col md:flex-row items-center md:items-start">
         <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-          <img src={logo} alt="Placeholder" className="rounded-lg shadow-lg" />
+          <LazyImage
+            src={logo}
+            alt="Placeholder"
+            className="rounded-lg shadow-lg"
+          />
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start p-4">
           <p className="text-lg md:text-xl text-gray-700">
@@ -134,7 +139,10 @@ const Contact = () => {
             className="mb-4 flex items-center"
           >
             <FaMapMarkerAlt className="mr-2 text-yellow-500" />
-            <span>Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector: 3, Bidhannagar, Kolkata, West Bengal 700098</span>
+            <span>
+              Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector: 3,
+              Bidhannagar, Kolkata, West Bengal 700098
+            </span>
           </animated.div>
           <animated.div
             style={animationProps}

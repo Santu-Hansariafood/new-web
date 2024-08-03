@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import ClientImage from "../../../Images/Team/clients.gif";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const Clients = () => {
   const clients = [
@@ -43,16 +44,16 @@ const Clients = () => {
         style={{ ...imageAnim, height: "33vh" }}
         className="top-photo bg-gray-300"
       >
-        <img
+        <LazyImage
           src={ClientImage}
           alt="Top Clients"
           className="w-full h-full object-cover"
         />
       </animated.div>
       <h2 className="text-3xl font-bold text-center my-8">
-        <span className="text-green-500">Our Top</span>{" "} 
+        <span className="text-green-500">Our Top</span>{" "}
         <span className="text-yellow-500">Clients</span>
-        </h2>
+      </h2>
       <div className="clients-list p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {clients.map((client, index) => (

@@ -1,7 +1,7 @@
-// src/components/FarmersReview.jsx
 import React from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const farmersData = [
   {
@@ -106,7 +106,7 @@ const ReviewCard = ({ farmer, reverse }) => {
       } mb-8`}
     >
       <div className="md:w-1/2 flex justify-center items-center">
-        <img
+        <LazyImage
           src={farmer.photo}
           alt={farmer.name}
           className="w-32 h-32 rounded-full"

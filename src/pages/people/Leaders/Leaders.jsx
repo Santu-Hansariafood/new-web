@@ -8,6 +8,7 @@ import {
 import { useSpring, animated } from "@react-spring/web";
 import data from "../../../data/data.json";
 import LeadersImage from "../../../Images/Team/leaders.jpeg";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const Leaders = () => {
   const [leaders, setLeaders] = useState([]);
@@ -34,7 +35,7 @@ const Leaders = () => {
         style={{ ...imageAnim, height: "33vh" }}
         className="top-photo bg-gray-300"
       >
-        <img
+        <LazyImage
           src={LeadersImage}
           alt="Company Leadership"
           className="w-full h-full object-cover"
@@ -52,7 +53,7 @@ const Leaders = () => {
               className="team-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105"
               style={fadeIn}
             >
-              <img
+              <LazyImage
                 src={leader.photo}
                 alt={leader.name}
                 className="w-full h-60 object-cover"

@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import data from "../../../data/data.json";
 import teamsmember from "../../../Images/Team/teams.gif";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -19,14 +20,15 @@ const Teams = () => {
   return (
     <div className="leaders-container">
       <div className="top-photo bg-gray-300 h-72 w-full flex items-center justify-center">
-        <img
+        <LazyImage
           src={teamsmember}
           alt="Team Hansaria"
           className="object-cover w-full h-full"
         />
       </div>
       <h2 className="text-3xl font-bold text-center my-8">
-        <span className="text-green-500">Meet Our</span> <span className="text-yellow-500">Teams</span>
+        <span className="text-green-500">Meet Our</span>{" "}
+        <span className="text-yellow-500">Teams</span>
       </h2>
       <div className="team-members p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -35,7 +37,7 @@ const Teams = () => {
               key={index}
               className="team-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:scale-105"
             >
-              <img
+              <LazyImage
                 src={team.photo}
                 alt={team.name}
                 className="w-full h-60 object-cover"

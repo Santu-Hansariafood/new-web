@@ -1,19 +1,22 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 import market from "../../../Images/services/market.jpg";
+import LazyImage from "../../../components/common/LazyImage/LazyImage";
 
 const MarketAnalysis = () => {
   return (
     <div className="relative bg-gray-100 font-sans">
       <div className="relative w-full h-80 bg-gray-300 flex items-center justify-center mb-4">
-        <img
+        <LazyImage
           src={market}
           alt="comodity"
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
         <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-green-700 text-white py-2 px-4 rounded">
           <span>Services</span> /{" "}
-          <span className="font-bold text-yellow-500">Top Notch Commodity Trading</span>
+          <span className="font-bold text-yellow-500">
+            Top Notch Commodity Trading
+          </span>
         </div>
       </div>
       <div className="content bg-white p-6 rounded shadow-lg">

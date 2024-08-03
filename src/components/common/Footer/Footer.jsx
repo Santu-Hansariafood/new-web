@@ -8,14 +8,14 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../Images/Logo/Hansaria-Logo.png";
-
+import LazyImage from "../../common/LazyImage/LazyImage";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-gray-800 text-white py-6">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <img src={logo} alt="Logo" className="h-12 mb-4 md:mb-0" />
+        <LazyImage src={logo} alt="Logo" className="h-12 mb-4 md:mb-0" />
         <div className="w-full md:w-auto flex flex-col md:flex-row justify-between items-start mb-4 md:mb-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex flex-col space-y-1">

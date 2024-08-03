@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/common/Navbar/Navbar";
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
 import Footer from "./components/common/Footer/Footer";
-import Career from "./pages/Career/Career";
-import Teams from "./pages/people/Teams/Teams";
-import Leaders from "./pages/people/Leaders/Leaders";
-import Clients from "./pages/people/Clients/Clients";
-import Farmers from "./pages/people/Farmers/Farmers";
-import Broking from "./pages/services/Broking/Broking";
-import CommodityTrading from "./pages/services/CommodityTrading/CommodityTrading";
-import MarketAnalysis from "./pages/services/MarketAnalysis/MarketAnalysis";
-import Maize from "./pages/products/Maize/Maize";
-import GrowthAndDevelopment from "./pages/GrowthAndDevelopment/GrowthAndDevelopment";
+import "./App.css";
+
+const Home = lazy(() => import("./pages/Home/Home"));
+const About = lazy(() => import("./pages/About/About"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const Career = lazy(() => import("./pages/Career/Career"));
+const Teams = lazy(() => import("./pages/people/Teams/Teams"));
+const Leaders = lazy(() => import("./pages/people/Leaders/Leaders"));
+const Clients = lazy(() => import("./pages/people/Clients/Clients"));
+const Farmers = lazy(() => import("./pages/people/Farmers/Farmers"));
+const Broking = lazy(() => import("./pages/services/Broking/Broking"));
+const CommodityTrading = lazy(() =>
+  import("./pages/services/CommodityTrading/CommodityTrading")
+);
+const MarketAnalysis = lazy(() =>
+  import("./pages/services/MarketAnalysis/MarketAnalysis")
+);
+const Maize = lazy(() => import("./pages/products/Maize/Maize"));
+const GrowthAndDevelopment = lazy(() =>
+  import("./pages/GrowthAndDevelopment/GrowthAndDevelopment")
+);
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -39,22 +47,35 @@ const App = () => {
           toggleLanguage={toggleLanguage}
         />
         <div className="pt-20">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/people/teams" element={<Teams />} />
-            <Route path="/services/top-notch-broking" element={<Broking />} />
-            <Route path="/services/commodity-trading" element={<CommodityTrading />} />
-            <Route path="/services/market-intelligence-analysis" element={<MarketAnalysis />} />
-            <Route path="/people/leaders" element={<Leaders />} />
-            <Route path="people/clients" element={<Clients />} />
-            <Route path="/people/farmers" element={<Farmers />} />
-            <Route path="/products/maize" element={<Maize />} />
-            <Route path="/grothdevelopment" element={<GrowthAndDevelopment />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/career" element={<Career />} />
-          </Routes>
+          <Suspense
+            fallback={<div className="loading-spinner">Loading...</div>}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/people/teams" element={<Teams />} />
+              <Route path="/services/top-notch-broking" element={<Broking />} />
+              <Route
+                path="/services/commodity-trading"
+                element={<CommodityTrading />}
+              />
+              <Route
+                path="/services/market-intelligence-analysis"
+                element={<MarketAnalysis />}
+              />
+              <Route path="/people/leaders" element={<Leaders />} />
+              <Route path="/people/clients" element={<Clients />} />
+              <Route path="/people/farmers" element={<Farmers />} />
+              <Route path="/products/maize" element={<Maize />} />
+              <Route
+                path="/grothdevelopment"
+                element={<GrowthAndDevelopment />}
+              />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/career" element={<Career />} />
+            </Routes>
+          </Suspense>
         </div>
         <Footer />
       </div>

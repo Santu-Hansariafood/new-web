@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import About from "../About/About";
 import Contact from "../Contact/Contact";
 import Career from "../Career/Career";
+import LazyImage from "../../components/common/LazyImage/LazyImage";
 import slide1 from "../../Images/Slides/slide-1.jpg";
 import slide2 from "../../Images/Slides/slide-2.jpg";
 import slide3 from "../../Images/Slides/slide-3.jpg";
@@ -64,7 +65,7 @@ const Home = () => {
         <Slider {...sliderSettings}>
           {slides.map((slide, index) => (
             <div key={index} className="relative w-full h-[90vh] md:h-screen">
-              <img
+              <LazyImage
                 src={slide.img}
                 alt={`Slide ${index + 1}`}
                 className="w-full h-full object-cover"
@@ -73,7 +74,7 @@ const Home = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-slide-in">
                   {slide.text}
                 </h1>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-green-400 font-bold animate-slide-in">
+                <h2 className="text-xl md:text-2xl lg:text-3xl text-green-400">
                   {slide.quote}
                 </h2>
                 <p className="mt-4 mb-6 text-sm md:text-lg lg:text-xl animate-slide-in">
@@ -88,8 +89,8 @@ const Home = () => {
         </Slider>
       </div>
       <About />
-      <Contact />
       <Career />
+      <Contact />
     </div>
   );
 };
