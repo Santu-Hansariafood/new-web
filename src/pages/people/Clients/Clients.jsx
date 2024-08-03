@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import ClientImage from "../../../Images/Team/clients.gif";
 
 const Clients = () => {
   const clients = [
@@ -29,16 +31,28 @@ const Clients = () => {
     };
   }, []);
 
+  const imageAnim = useSpring({
+    from: { opacity: 0, transform: "translateY(-20px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    config: { duration: 1000 },
+  });
+
   return (
     <div className="clients-container">
-      <div className="top-photo bg-gray-300 h-1/3">
+      <animated.div
+        style={{ ...imageAnim, height: "33vh" }}
+        className="top-photo bg-gray-300"
+      >
         <img
-          src="https://via.placeholder.com/1200x400"
+          src={ClientImage}
           alt="Top Clients"
           className="w-full h-full object-cover"
         />
-      </div>
-      <h2 className="text-3xl font-bold text-center my-8">Our Top Clients</h2>
+      </animated.div>
+      <h2 className="text-3xl font-bold text-center my-8">
+        <span className="text-green-500">Our Top</span>{" "} 
+        <span className="text-yellow-500">Clients</span>
+        </h2>
       <div className="clients-list p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {clients.map((client, index) => (

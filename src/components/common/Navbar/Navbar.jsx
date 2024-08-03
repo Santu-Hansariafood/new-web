@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { useLocation, Link } from "react-router-dom";
 import logo from "../../../Images/Logo/Hansaria-Logo.png";
 
@@ -66,9 +66,9 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
           <div className="relative dropdown">
             <button
               onClick={() => toggleDropdown("services")}
-              className={`px-3 py-2 ${isActive("/services") ? "underline" : ""} focus:outline-none`}
+              className={`flex items-center px-3 py-2 ${isActive("/services") ? "underline" : ""} focus:outline-none`}
             >
-              Services
+              Services <FaChevronDown className="ml-2" />
             </button>
             {dropdownOpen === "services" && (
               <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-700 text-black dark:text-white rounded shadow-lg z-50 transition-opacity duration-300 ease-in-out opacity-100">
@@ -87,9 +87,9 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
           <div className="relative dropdown">
             <button
               onClick={() => toggleDropdown("people")}
-              className={`px-3 py-2 ${isActive("/people") ? "underline" : ""} focus:outline-none`}
+              className={`flex items-center px-3 py-2 ${isActive("/people") ? "underline" : ""} focus:outline-none`}
             >
-              People
+              People <FaChevronDown className="ml-2" />
             </button>
             {dropdownOpen === "people" && (
               <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-700 text-black dark:text-white rounded shadow-lg z-50 transition-opacity duration-300 ease-in-out opacity-100">
@@ -111,9 +111,9 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
           <div className="relative dropdown">
             <button
               onClick={() => toggleDropdown("products")}
-              className={`px-3 py-2 ${isActive("/products") ? "underline" : ""} focus:outline-none`}
+              className={`flex items-center px-3 py-2 ${isActive("/products") ? "underline" : ""} focus:outline-none`}
             >
-              Products
+              Products <FaChevronDown className="ml-2" />
             </button>
             {dropdownOpen === "products" && (
               <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-700 text-black dark:text-white rounded shadow-lg z-50 transition-opacity duration-300 ease-in-out opacity-100">

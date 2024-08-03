@@ -1,5 +1,10 @@
 import React from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaBuilding,
+} from "react-icons/fa";
 import { useSpring, animated } from "@react-spring/web";
 import ContactCover from "../../Images/Contact/contact.gif";
 import logo from "../../Images/Logo/Hansaria-Logo.png";
@@ -45,7 +50,10 @@ const Contact = () => {
       </div>
 
       <div className="w-full p-6 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold text-green-600 mb-4">Head Office</h2>
+        <h2 className="text-3xl font-bold mb-4">
+          <span className="text-yellow-500">Head</span>{" "}
+          <span className="text-green-500">Office</span>
+        </h2>
         <animated.div
           style={animationProps}
           className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-3/4 lg:w-2/3"
@@ -53,21 +61,27 @@ const Contact = () => {
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 p-4">
               <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=69A+Satish+Mukherjee+Road+Kolkata+West+Bengal+700026"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.4234607104922!2d88.40781927454105!3d22.563260133314028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275b7a8d7ebaf%3A0xec7eb347c6472d0e!2sHansaria%20Food%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1722661943720!5m2!1sen!2sin"
                 width="100%"
                 height="250"
                 frameBorder="0"
                 style={{ border: "2px solid #4CAF50", borderRadius: "10px" }}
                 allowFullScreen=""
-                aria-hidden="false"
-                tabIndex="0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Hansaria Food Pvt Ltd Location"
               ></iframe>
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center p-4">
               <div className="flex items-center text-green-600 mb-4">
+                <FaBuilding className="mr-2 text-yellow-500" />
+                <span className="font-bold">Hansaria Food Pvt Ltd</span>
+              </div>
+              <div className="flex items-center text-green-600 mb-4">
                 <FaMapMarkerAlt className="mr-2 text-yellow-500" />
-                <span className="font-bold">
-                  69A, Satish Mukherjee Road, Kolkata, West Bengal 700026
+                <span className="">
+                  Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector:
+                  3, Bidhannagar, Kolkata, West Bengal 700098
                 </span>
               </div>
               <div className="flex items-center text-green-600 mb-2">
@@ -92,7 +106,10 @@ const Contact = () => {
       </div>
 
       <div className="w-full p-6 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold text-green-600 mb-4">Branch Offices</h2>
+        <h2 className="text-3xl font-bold mb-4">
+          <span className="text-green-500">Branch </span>{" "}
+          <span className="text-yellow-500">Offices</span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
           {branchOffices.map((branch, index) => (
             <animated.div
@@ -112,19 +129,31 @@ const Contact = () => {
 
       <div className="w-full p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10 min-h-full">
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start p-4 bg-green-600 text-white relative z-20 h-full">
-          <animated.div style={animationProps} className="mb-4 flex items-center">
+          <animated.div
+            style={animationProps}
+            className="mb-4 flex items-center"
+          >
             <FaMapMarkerAlt className="mr-2 text-yellow-500" />
-            <span>69A, Satish Mukherjee Road, Kolkata, West Bengal 700026</span>
+            <span>Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector: 3, Bidhannagar, Kolkata, West Bengal 700098</span>
           </animated.div>
-          <animated.div style={animationProps} className="mb-4 flex items-center">
+          <animated.div
+            style={animationProps}
+            className="mb-4 flex items-center"
+          >
             <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>+91 33 2466 2179</span>
           </animated.div>
-          <animated.div style={animationProps} className="mb-4 flex items-center">
+          <animated.div
+            style={animationProps}
+            className="mb-4 flex items-center"
+          >
             <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>+91 33 2466 2180</span>
           </animated.div>
-          <animated.div style={animationProps} className="mb-4 flex items-center">
+          <animated.div
+            style={animationProps}
+            className="mb-4 flex items-center"
+          >
             <FaPhoneAlt className="mr-2 text-yellow-500" />
             <span>Customer care: +91 9073328273</span>
           </animated.div>
@@ -139,23 +168,50 @@ const Contact = () => {
           </h2>
           <form className="space-y-4">
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <select className="border p-2 rounded w-full" defaultValue="Enquiry Type">
-                <option value="Enquiry Type" disabled>Enquiry Type</option>
+              <select
+                className="border p-2 rounded w-full"
+                defaultValue="Enquiry Type"
+              >
+                <option value="Enquiry Type" disabled>
+                  Enquiry Type
+                </option>
                 <option value="General">General</option>
                 <option value="Sales">Sales</option>
                 <option value="Support">Support</option>
                 <option value="Feedback">Feedback</option>
                 <option value="Other">Other</option>
               </select>
-              <input type="text" placeholder="Name" className="border p-2 rounded w-full" />
+              <input
+                type="text"
+                placeholder="Name"
+                className="border p-2 rounded w-full"
+              />
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <input type="email" placeholder="Email" className="border p-2 rounded w-full" />
-              <input type="text" placeholder="Phone No." className="border p-2 rounded w-full" />
+              <input
+                type="email"
+                placeholder="Email"
+                className="border p-2 rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="Phone No."
+                className="border p-2 rounded w-full"
+              />
             </div>
-            <input type="text" placeholder="Subject" className="border p-2 rounded w-full" />
-            <textarea placeholder="Write your message here.." className="border p-2 rounded w-full h-32"></textarea>
-            <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 hover:text-yellow-500 transition-colors duration-300">
+            <input
+              type="text"
+              placeholder="Subject"
+              className="border p-2 rounded w-full"
+            />
+            <textarea
+              placeholder="Write your message here.."
+              className="border p-2 rounded w-full h-32"
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 hover:text-yellow-500 transition-colors duration-300"
+            >
               Submit
             </button>
           </form>
