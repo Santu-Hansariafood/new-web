@@ -46,23 +46,21 @@ const App = () => {
           language={language}
           toggleLanguage={toggleLanguage}
         />
-        <div className="pt-20">
-          <Suspense
-            fallback={<div className="loading-spinner">Loading...</div>}
-          >
+        <div className="pt-[4rem]">
+          <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/" element={<Home darkMode={darkMode}/>} />
+              <Route path="/home" element={<Home darkMode={darkMode} />} />
+              <Route path="/about" element={<About darkMode={darkMode} />} />
               <Route path="/people/teams" element={<Teams />} />
-              <Route path="/services/top-notch-broking" element={<Broking />} />
+              <Route path="/services/top-notch-broking" element={<Broking darkMode={darkMode} />} />
               <Route
                 path="/services/commodity-trading"
-                element={<CommodityTrading />}
+                element={<CommodityTrading darkMode={darkMode}/>}
               />
               <Route
                 path="/services/market-intelligence-analysis"
-                element={<MarketAnalysis />}
+                element={<MarketAnalysis darkMode={darkMode}/>}
               />
               <Route path="/people/leaders" element={<Leaders />} />
               <Route path="/people/clients" element={<Clients />} />
@@ -70,7 +68,7 @@ const App = () => {
               <Route path="/products/maize" element={<Maize />} />
               <Route
                 path="/grothdevelopment"
-                element={<GrowthAndDevelopment />}
+                element={<GrowthAndDevelopment darkMode={darkMode}/>}
               />
               <Route path="/contact" element={<Contact />} />
               <Route path="/career" element={<Career />} />

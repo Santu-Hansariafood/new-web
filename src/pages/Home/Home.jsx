@@ -13,7 +13,7 @@ import slide4 from "../../Images/Slides/slide-4.jpg";
 import slide5 from "../../Images/Slides/slide-5.jpg";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ darkMode }) => {
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -35,7 +35,7 @@ const Home = () => {
       img: slide1,
       text: "High Quality Grains for the Nation",
       quote:
-        "We take pride in producing the highest quality seeds for optimised yields.",
+        "We take pride in producing the highest quality seeds for optimized yields.",
     },
     {
       img: slide2,
@@ -60,7 +60,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div
+      className={`w-full flex flex-col items-center justify-center ${
+        darkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900"
+      }`}
+    >
       <div className="w-full relative">
         <Slider {...sliderSettings}>
           {slides.map((slide, index) => (
@@ -70,7 +74,11 @@ const Home = () => {
                 alt={`Slide ${index + 1}`}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8 md:p-16 lg:p-24">
+              <div
+                className={`absolute top-0 left-0 w-full h-full flex flex-col items-start justify-center p-8 md:p-16 lg:p-24 ${
+                  darkMode ? "bg-black bg-opacity-60" : "bg-black bg-opacity-50"
+                }`}
+              >
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-slide-in">
                   {slide.text}
                 </h1>
@@ -80,7 +88,13 @@ const Home = () => {
                 <p className="mt-4 mb-6 text-sm md:text-lg lg:text-xl animate-slide-in">
                   {slide.quote}
                 </p>
-                <button className="mt-6 bg-green-500 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-sm md:text-base hover:bg-yellow-500 hover:text-green-500 transition-colors duration-300">
+                <button
+                  className={`mt-6 px-4 py-2 md:px-6 md:py-2 rounded-full text-sm md:text-base transition-colors duration-300 ${
+                    darkMode
+                      ? "bg-green-600 text-white hover:bg-yellow-500 hover:text-green-600"
+                      : "bg-green-500 text-white hover:bg-yellow-500 hover:text-green-500"
+                  }`}
+                >
                   Discover Now
                 </button>
               </div>
@@ -88,9 +102,11 @@ const Home = () => {
           ))}
         </Slider>
       </div>
-      <About />
-      <Career />
-      <Contact />
+
+      {/* Pass darkMode to child components */}
+      <About darkMode={darkMode} />
+      <Career darkMode={darkMode} />
+      <Contact darkMode={darkMode} />
     </div>
   );
 };

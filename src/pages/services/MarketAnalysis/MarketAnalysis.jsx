@@ -40,7 +40,7 @@ const marketStrategies = [
   },
 ];
 
-const MarketAnalysis = () => {
+const MarketAnalysis = ({ darkMode }) => {
   return (
     <CommonServices
       title="Strategies To Select A Good Portfolio Management Service"
@@ -48,6 +48,7 @@ const MarketAnalysis = () => {
       image={market}
       strategies={marketStrategies}
       about="Hansaria Food Pvt Ltd (HFPL) is known for its ethical business practices in the commodities market. HFPL ensures that its deals with buyers and sellers are honored, even in times of market rate fluctuations."
+      darkMode={darkMode}
     />
   );
 };

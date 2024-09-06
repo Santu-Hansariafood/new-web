@@ -41,7 +41,7 @@ const brokingStrategies = [
   },
 ];
 
-const Broking = () => {
+const Broking = ({ darkMode }) => {
   return (
     <CommonServices
       title="Strategies To Select A Good Portfolio Management Service"
@@ -49,6 +49,7 @@ const Broking = () => {
       image={brokerage}
       strategies={brokingStrategies}
       about="Hansaria Food Pvt Ltd (HFPL) is a well-known entity in the commodities market, trusted for its integrity and ethical business practices. HFPL works with genuine buyers and sellers who honor their deals, regardless of market fluctuations."
+      darkMode={darkMode}
     />
   );
 };

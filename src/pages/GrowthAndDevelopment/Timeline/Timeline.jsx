@@ -9,6 +9,7 @@ const TimelineEvent = ({
   bgColor,
   dateRange,
   align,
+  darkMode,
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -24,24 +25,26 @@ const TimelineEvent = ({
     >
       <div className="flex justify-between w-full mb-2">
         <div className="text-lg font-semibold">{year}</div>
-        <div className="px-2 py-1 bg-gray-800 rounded">{dateRange}</div>
+        <div className={`px-2 py-1 ${darkMode ? "bg-gray-700" : "bg-gray-800"} rounded`}>
+          {dateRange}
+        </div>
       </div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-sm">{description}</p>
       <div
-        className={`absolute top-12 h-8 w-8 bg-gray-200 rounded-full border-2 border-gray-400 flex items-center justify-center ${
+        className={`absolute top-12 h-8 w-8 ${darkMode ? "bg-gray-700" : "bg-gray-200"} rounded-full border-2 ${darkMode ? "border-gray-500" : "border-gray-400"} flex items-center justify-center ${
           align === "left"
             ? "-right-4 md:right-auto md:-left-4"
             : "-left-4 md:left-auto md:-right-4"
         }`}
       >
-        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+        <div className={`w-2 h-2 ${darkMode ? "bg-gray-500" : "bg-gray-400"} rounded-full`}></div>
       </div>
     </div>
   );
 };
 
-const Timeline = () => {
+const Timeline = ({darkMode}) => {
   const events = [
     {
       year: "2000",
@@ -125,8 +128,8 @@ const Timeline = () => {
   return (
     <div className="relative max-w-7xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-8">
-        <span className="text-green-500">Time</span>
-        <span className="text-yellow-500">line</span>
+        <span className={`text-green-500`}>Time</span>
+        <span className={`text-yellow-500`}>line</span>
       </h1>
       <div className="relative flex flex-col items-center">
         {events.map((event, index) => (
@@ -141,9 +144,10 @@ const Timeline = () => {
               bgColor={event.bgColor}
               dateRange={event.dateRange}
               align={index % 2 === 0 ? "left" : "right"}
+              darkMode={darkMode}
             />
             {index !== events.length - 1 && (
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px bg-dotted bg-gray-400 h-8"></div>
+              <div className={`hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px h-8 ${darkMode ? "bg-gray-500" : "bg-gray-400"}`}></div>
             )}
           </div>
         ))}
@@ -151,5 +155,6 @@ const Timeline = () => {
     </div>
   );
 };
+
 
 export default Timeline;

@@ -40,7 +40,7 @@ const commodityStrategies = [
   },
 ];
 
-const CommodityTrading = () => {
+const CommodityTrading = ({ darkMode }) => {
   return (
     <CommonServices
       title="Strategies To Select A Good Portfolio Management Service"
@@ -48,6 +48,7 @@ const CommodityTrading = () => {
       image={comodity}
       strategies={commodityStrategies}
       about="Hansaria Food Pvt Ltd (HFPL) deals with authentic buyers and sellers who continue to stand with any bargain done even when there is a variation in the market rate."
+      darkMode={darkMode}
     />
   );
 };
