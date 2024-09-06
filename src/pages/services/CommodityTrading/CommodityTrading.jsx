@@ -1,41 +1,54 @@
 import React from "react";
-import "tailwindcss/tailwind.css";
 import comodity from "../../../Images/services/comodity.jpg";
-import LazyImage from "../../../components/common/LazyImage/LazyImage";
+import CommonServices from "../../../components/common/CommonServices/CommonServices";
+
+const commodityStrategies = [
+  {
+    title: "Understand Your Investment Objectives",
+    content:
+      "Before selecting a PMS, clearly define your investment goals. Are you seeking long-term growth, wealth preservation, or income generation? Your investment manager will create a strategy based on your specific goals, risk tolerance, and time horizon, ensuring that your portfolio meets your needs.",
+  },
+  {
+    title: "Research the Expertise of the Fund Manager",
+    content:
+      "The success of your portfolio largely depends on the experience and expertise of the portfolio manager. Look for managers with a proven track record in managing diversified portfolios and consistently delivering returns. Choose someone who can manage risk while capitalizing on market opportunities.",
+  },
+  {
+    title: "Review Past Performance",
+    content:
+      "Analyze the past performance of the PMS provider. While past performance doesn’t guarantee future success, it offers insight into how well the fund has been managed during different market conditions. Focus on consistency over long periods, rather than short-term results.",
+  },
+  {
+    title: "Diversification Strategy",
+    content:
+      "A good PMS diversifies your investments across various sectors, companies, and asset classes, reducing the risk of heavy losses from any single investment. The manager should invest in high-rated corporate and individual firms to balance risk and maximize returns.",
+  },
+  {
+    title: "Customization and Flexibility",
+    content:
+      "Select a PMS provider that offers personalized solutions based on your financial situation. They should be able to adjust your portfolio as your needs change, be it shifting market conditions or changes in your financial priorities.",
+  },
+  {
+    title: "Fee Structure Transparency",
+    content:
+      "Ensure the PMS provider has a clear and transparent fee structure. Look for details on management fees, performance-based fees, and other hidden charges. Lower fees could significantly improve your long-term returns.",
+  },
+  {
+    title: "Risk Management Approach",
+    content:
+      "Evaluate the PMS provider's approach to managing risks. They should actively monitor and rebalance your portfolio to protect your investments during market fluctuations. Investing in firms with strong credit ratings, especially in dynamic markets like India, ensures more stable returns.",
+  },
+];
 
 const CommodityTrading = () => {
   return (
-    <div className="relative bg-gray-100 font-sans">
-      <div className="relative w-full h-80 bg-gray-300 flex items-center justify-center mb-4">
-        <LazyImage
-          src={comodity}
-          alt="comodity"
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
-        <div className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-green-700 text-white py-2 px-4 rounded">
-          <span>Services</span> /{" "}
-          <span className="font-bold text-yellow-500">
-            Top Notch Commodity Trading
-          </span>
-        </div>
-      </div>
-      <div className="content bg-white p-6 rounded shadow-lg">
-        <h1 className="text-green-700 text-2xl font-bold">
-          Strategies To Select A Good Portfolio Management Service
-        </h1>
-        <p className="text-gray-700 mt-2">
-          Based on your investment objective and requirements, the professional
-          manager will create a diversified portfolio by investing in different
-          commodities in corporate and individual firms which have good ratings
-          in India.
-        </p>
-        <p className="text-gray-700 mt-2">
-          Hansaria Food Pvt Ltd (HFPL) deals with authentic buyers and sellers
-          who continue to stand with any bargain done even when there is a
-          variation in the market rate.
-        </p>
-      </div>
-    </div>
+    <CommonServices
+      title="Strategies To Select A Good Portfolio Management Service"
+      subtitle="Top Notch Commodity Trading"
+      image={comodity}
+      strategies={commodityStrategies}
+      about="Hansaria Food Pvt Ltd (HFPL) deals with authentic buyers and sellers who continue to stand with any bargain done even when there is a variation in the market rate."
+    />
   );
 };
 
