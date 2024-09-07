@@ -1,10 +1,7 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import About from "../About/About";
-import Contact from "../Contact/Contact";
-import Career from "../Career/Career";
 import LazyImage from "../../components/common/LazyImage/LazyImage";
 import slide1 from "../../Images/Slides/slide-1.jpg";
 import slide2 from "../../Images/Slides/slide-2.jpg";
@@ -12,6 +9,10 @@ import slide3 from "../../Images/Slides/slide-3.jpg";
 import slide4 from "../../Images/Slides/slide-4.jpg";
 import slide5 from "../../Images/Slides/slide-5.jpg";
 import "./Home.css";
+
+const About = lazy(() => import("../About/About"));
+const Contact = lazy(() => import("../Contact/Contact"));
+const Career = lazy(() => import("../Career/Career"));
 
 const Home = ({ darkMode }) => {
   const sliderSettings = {
@@ -103,10 +104,15 @@ const Home = ({ darkMode }) => {
         </Slider>
       </div>
 
-      {/* Pass darkMode to child components */}
-      <About darkMode={darkMode} />
-      <Career darkMode={darkMode} />
-      <Contact darkMode={darkMode} />
+      <Suspense fallback={<div>Loading About Section...</div>}>
+        <About darkMode={darkMode} />
+      </Suspense>
+      <Suspense fallback={<div>Loading Career Section...</div>}>
+        <Career darkMode={darkMode} />
+      </Suspense>
+      <Suspense fallback={<div>Loading Contact Section...</div>}>
+        <Contact darkMode={darkMode} />
+      </Suspense>
     </div>
   );
 };

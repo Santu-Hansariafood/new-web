@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../../Images/Logo/Hansaria-Logo.png";
 import LazyImage from "../LazyImage/LazyImage";
 import MobileMenu from "../MobileMenu/MobileMenu";
@@ -24,7 +24,11 @@ const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
         </button>
       </div>
 
-      <div className={`${mobileMenuOpen ? "block" : "hidden"} md:flex md:items-center md:space-x-6`}>
+      <div
+        className={`${
+          mobileMenuOpen ? "block" : "hidden"
+        } md:flex md:items-center md:space-x-6`}
+      >
         <MobileMenu mobileMenuOpen={mobileMenuOpen} />
       </div>
 

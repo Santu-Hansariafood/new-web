@@ -1,5 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/common/Navbar/Navbar";
 import Footer from "./components/common/Footer/Footer";
 import "./App.css";
@@ -38,46 +39,53 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
-        <Navbar
-          darkMode={darkMode}
-          toggleDarkMode={toggleDarkMode}
-          language={language}
-          toggleLanguage={toggleLanguage}
-        />
-        <div className="pt-[4rem]">
-          <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home darkMode={darkMode}/>} />
-              <Route path="/home" element={<Home darkMode={darkMode} />} />
-              <Route path="/about" element={<About darkMode={darkMode} />} />
-              <Route path="/people/teams" element={<Teams />} />
-              <Route path="/services/top-notch-broking" element={<Broking darkMode={darkMode} />} />
-              <Route
-                path="/services/commodity-trading"
-                element={<CommodityTrading darkMode={darkMode}/>}
-              />
-              <Route
-                path="/services/market-intelligence-analysis"
-                element={<MarketAnalysis darkMode={darkMode}/>}
-              />
-              <Route path="/people/leaders" element={<Leaders />} />
-              <Route path="/people/clients" element={<Clients />} />
-              <Route path="/people/farmers" element={<Farmers />} />
-              <Route path="/products/maize" element={<Maize />} />
-              <Route
-                path="/grothdevelopment"
-                element={<GrowthAndDevelopment darkMode={darkMode}/>}
-              />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/career" element={<Career />} />
-            </Routes>
-          </Suspense>
+    <HelmetProvider>
+      <Router>
+        <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+          <Navbar
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+            language={language}
+            toggleLanguage={toggleLanguage}
+          />
+          <div className="pt-[4rem]">
+            <Suspense
+              fallback={<div className="loading-spinner">Loading...</div>}
+            >
+              <Routes>
+                <Route path="/" element={<Home darkMode={darkMode} />} />
+                <Route path="/home" element={<Home darkMode={darkMode} />} />
+                <Route path="/about" element={<About darkMode={darkMode} />} />
+                <Route path="/people/teams" element={<Teams />} />
+                <Route
+                  path="/services/top-notch-broking"
+                  element={<Broking darkMode={darkMode} />}
+                />
+                <Route
+                  path="/services/commodity-trading"
+                  element={<CommodityTrading darkMode={darkMode} />}
+                />
+                <Route
+                  path="/services/market-intelligence-analysis"
+                  element={<MarketAnalysis darkMode={darkMode} />}
+                />
+                <Route path="/people/leaders" element={<Leaders />} />
+                <Route path="/people/clients" element={<Clients />} />
+                <Route path="/people/farmers" element={<Farmers />} />
+                <Route path="/products/maize" element={<Maize />} />
+                <Route
+                  path="/grothdevelopment"
+                  element={<GrowthAndDevelopment darkMode={darkMode} />}
+                />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/career" element={<Career />} />
+              </Routes>
+            </Suspense>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </HelmetProvider>
   );
 };
 
