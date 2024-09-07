@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/common/Navbar/Navbar";
 import Footer from "./components/common/Footer/Footer";
+import CookieConsent from "./components/common/CookieConsent/CookieConsent";
 import "./App.css";
 
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -83,6 +84,7 @@ const App = () => {
             </Suspense>
           </div>
           <Footer />
+          <CookieConsent />
         </div>
       </Router>
     </HelmetProvider>
