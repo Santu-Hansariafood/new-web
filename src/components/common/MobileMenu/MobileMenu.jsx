@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import NavItem from "../NavItem/NavItem";
 import Dropdown from "../Dropdown/Dropdown";
 
-const MobileMenu = ({ mobileMenuOpen }) => {
+const MobileMenu = ({ closeMobileMenu }) => {
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [peopleOpen, setPeopleOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    closeMobileMenu();
+    setServicesOpen(false);
+    setPeopleOpen(false);
+    setProductsOpen(false);
+  };
+
   const servicesLinks = [
     { path: "/services/commodity-trading", label: "Commodity Trading" },
     {
@@ -28,37 +39,60 @@ const MobileMenu = ({ mobileMenuOpen }) => {
 
   return (
     <>
-      <NavItem to="/home" isActive={window.location.pathname === "/home"}>
+      <NavItem
+        to="/home"
+        isActive={window.location.pathname === "/home"}
+        onClick={handleLinkClick}
+      >
         Home
       </NavItem>
-      <NavItem to="/about" isActive={window.location.pathname === "/about"}>
+      <NavItem
+        to="/about"
+        isActive={window.location.pathname === "/about"}
+        onClick={handleLinkClick}
+      >
         About
       </NavItem>
       <Dropdown
         title="Services"
         links={servicesLinks}
         isActive={window.location.pathname.includes("/services")}
+        isOpen={servicesOpen}
+        setIsOpen={setServicesOpen}
       />
       <Dropdown
         title="People"
         links={peopleLinks}
         isActive={window.location.pathname.includes("/people")}
+        isOpen={peopleOpen}
+        setIsOpen={setPeopleOpen}
       />
       <Dropdown
         title="Products"
         links={productsLinks}
         isActive={window.location.pathname.includes("/products")}
+        isOpen={productsOpen}
+        setIsOpen={setProductsOpen}
       />
       <NavItem
         to="/grothdevelopment"
         isActive={window.location.pathname === "/grothdevelopment"}
+        onClick={handleLinkClick}
       >
         G & D
       </NavItem>
-      <NavItem to="/contact" isActive={window.location.pathname === "/contact"}>
+      <NavItem
+        to="/contact"
+        isActive={window.location.pathname === "/contact"}
+        onClick={handleLinkClick}
+      >
         Contact
       </NavItem>
-      <NavItem to="/career" isActive={window.location.pathname === "/career"}>
+      <NavItem
+        to="/career"
+        isActive={window.location.pathname === "/career"}
+        onClick={handleLinkClick}
+      >
         Career
       </NavItem>
     </>
