@@ -23,13 +23,13 @@ const LanguageSelector = ({ language, toggleLanguage }) => {
             onClick={() => toggleLanguage("bn")}
             className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
           >
-            Bangla (bn)
+            বাংলা (bn)
           </button>
           <button
             onClick={() => toggleLanguage("hi")}
             className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600"
           >
-            Hindi (hi)
+            हिंदी (hi)
           </button>
         </div>
       )}

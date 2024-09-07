@@ -66,7 +66,7 @@ const Contact = () => {
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 p-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.4234607104922!2d88.40781927454105!3d22.563260133314028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275b7a8d7ebaf%3A0xec7eb347c6472d0e!2sHansaria%20Food%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1722661943720!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d902.9086307953263!2d88.41065112463197!3d22.564665174700295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275005009366d%3A0x5c26fc529aa51ab5!2sHansaria%20Food%20Private%20Limited!5e1!3m2!1sen!2sin!4v1725693826755!5m2!1sen!2sin"
                 width="100%"
                 height="250"
                 frameBorder="0"

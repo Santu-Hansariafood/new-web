@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../Images/Logo/Hansaria-Logo.png";
 import LazyImage from "../LazyImage/LazyImage";
-import MobileMenu from "../MobileMenu/MobileMenu";
-import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
+
+const MobileMenu = lazy(() => import("../MobileMenu/MobileMenu"));
+const DarkModeToggle = lazy(() => import("../DarkModeToggle/DarkModeToggle"));
+const LanguageSelector = lazy(() =>
+  import("../LanguageSelector/LanguageSelector")
+);
 
 const Navbar = ({ darkMode, toggleDarkMode, language, toggleLanguage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
