@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaFacebook, FaYoutube, FaInstagram } from "react-icons/fa";
 import teamData from "../../data/data.json";
-import LazyImage from "../../components/common/LazyImage/LazyImage"
+import LazyImage from "../../components/common/LazyImage/LazyImage";
 
-const Career = () => {
+const Career = ({ darkMode }) => {
   const [data, setData] = useState({ teamMembers: [], jobOpenings: [] });
 
   useEffect(() => {
@@ -11,15 +11,29 @@ const Career = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
+    <div
+      className={`container mx-auto p-6 ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
+    >
       <h1 className="text-4xl font-bold text-center mb-8">
-        <span className="text-green-500">Employee</span>{" "}
-        <sapn className="text-yellow-500">Review</sapn>
+        <span className={`${darkMode ? "text-green-500" : "text-green-600"}`}>
+          Employee
+        </span>{" "}
+        <span className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}>
+          Review
+        </span>
       </h1>
+
+      {/* Team Members Section */}
       <div className="flex flex-wrap justify-center">
         {data.teamMembers.map((member, index) => (
           <div key={index} className="w-full md:w-1/3 p-4">
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div
+              className={`${
+                darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+              } shadow-lg rounded-lg overflow-hidden`}
+            >
               <LazyImage
                 src={member.photo}
                 alt={member.name}
@@ -27,7 +41,13 @@ const Career = () => {
               />
               <div className="p-6 text-center">
                 <h2 className="text-2xl font-bold">{member.name}</h2>
-                <p className="text-gray-600 mb-4">{member.designation}</p>
+                <p
+                  className={`${
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  } mb-4`}
+                >
+                  {member.designation}
+                </p>
                 <div className="flex justify-center space-x-4">
                   <a href={member.linkedin} className="text-blue-500">
                     <FaLinkedin size="1.5em" />
@@ -47,66 +67,111 @@ const Career = () => {
           </div>
         ))}
       </div>
+
+      {/* Job Openings Section */}
       <h1 className="text-4xl font-bold text-center my-8">
-        <span className="text-green-500">Current</span>{" "}
-        <span className="text-yellow-500">Openings</span>{" "}
+        <span className={`${darkMode ? "text-green-500" : "text-green-600"}`}>
+          Current
+        </span>{" "}
+        <span className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}>
+          Openings
+        </span>
       </h1>
       <div className="flex flex-wrap justify-center">
         {data.jobOpenings.map((job, index) => (
           <div key={index} className="w-full md:w-1/2 p-4">
             <div
-              className={`bg-white shadow-lg rounded-lg overflow-hidden ${
+              className={`${
+                darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+              } shadow-lg rounded-lg overflow-hidden ${
                 job.status === "open"
-                  ? "border-l-4 border-green-500"
+                  ? darkMode
+                    ? "border-l-4 border-green-400"
+                    : "border-l-4 border-green-500"
+                  : darkMode
+                  ? "border-l-4 border-red-400"
                   : "border-l-4 border-red-500"
               }`}
             >
               <div className="p-6">
                 <h2 className="text-2xl font-bold">{job.title}</h2>
-                <p className="text-gray-600 mb-2">
+                <p
+                  className={`${
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  } mb-2`}
+                >
                   Designation: {job.designation}
                 </p>
-                <p className="text-gray-600 mb-2">
+                <p
+                  className={`${
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  } mb-2`}
+                >
                   Number of Openings: {job.numberOfOpenings}
                 </p>
-                <p className="text-gray-600">{job.description}</p>
+                <p
+                  className={`${darkMode ? "text-gray-300" : "text-gray-600"}`}
+                >
+                  {job.description}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Apply for Position Section */}
       <h1 className="text-4xl font-bold text-center my-8">
-        <span className="text-green-500">Apply for a </span>
-        <span className="text-yellow-500">Position</span>
+        <span className={`${darkMode ? "text-green-500" : "text-green-600"}`}>
+          Apply for a
+        </span>{" "}
+        <span className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}>
+          Position
+        </span>
       </h1>
-      <form className="bg-white shadow-lg rounded-lg p-6">
+      <form
+        className={`${
+          darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+        } shadow-lg rounded-lg p-6`}
+      >
         <div className="mb-4">
           <input
             type="text"
             placeholder="Name"
-            className="border p-2 rounded w-full"
+            className={`border p-2 rounded w-full ${
+              darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+            }`}
           />
         </div>
         <div className="mb-4">
           <input
             type="email"
             placeholder="Email"
-            className="border p-2 rounded w-full"
+            className={`border p-2 rounded w-full ${
+              darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+            }`}
           />
         </div>
         <div className="mb-4">
           <input
             type="text"
             placeholder="Apply for Position"
-            className="border p-2 rounded w-full"
+            className={`border p-2 rounded w-full ${
+              darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+            }`}
           />
         </div>
         <div className="mb-4">
-          <input type="file" className="border p-2 rounded w-full" />
+          <input
+            type="file"
+            className={`border p-2 rounded w-full ${
+              darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+            }`}
+          />
         </div>
         <button
           type="submit"
-          className="bg-green-600 text-white py-2 px-4 rounded"
+          className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300"
         >
           Send
         </button>

@@ -78,8 +78,8 @@ const App = () => {
                   path="/grothdevelopment"
                   element={<GrowthAndDevelopment darkMode={darkMode} />}
                 />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/career" element={<Career />} />
+                <Route path="/contact" element={<Contact darkMode={darkMode}/>} />
+                <Route path="/career" element={<Career darkMode={darkMode}/>} />
               </Routes>
             </Suspense>
           </div>

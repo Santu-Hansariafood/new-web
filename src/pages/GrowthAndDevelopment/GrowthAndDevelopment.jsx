@@ -7,6 +7,7 @@ import {
   FaPen,
 } from "react-icons/fa";
 
+// Lazy load the Timeline component
 const Timeline = React.lazy(() => import("./Timeline/Timeline"));
 
 const GrowthAndDevelopment = ({ darkMode }) => {
@@ -49,7 +50,7 @@ const GrowthAndDevelopment = ({ darkMode }) => {
   ];
 
   return (
-    <div className={`max-w-7xl mx-auto p-6 ${darkMode ? "dark" : ""}`}>
+    <div className={`max-w-7xl mx-auto p-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       <h1 className="text-3xl font-bold text-center mb-8">
         <span className="text-green-500">MARKETING</span>{" "}
         <span className="text-yellow-500">STRATEGY</span>
@@ -70,7 +71,7 @@ const GrowthAndDevelopment = ({ darkMode }) => {
         ))}
       </div>
       <Suspense fallback={<div>Loading timeline...</div>}>
-        <Timeline />
+        <Timeline darkMode={darkMode} />
       </Suspense>
     </div>
   );

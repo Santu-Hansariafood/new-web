@@ -44,7 +44,7 @@ const TimelineEvent = ({
   );
 };
 
-const Timeline = ({darkMode}) => {
+const Timeline = ({ darkMode }) => {
   const events = [
     {
       year: "2000",
@@ -155,6 +155,5 @@ const Timeline = ({darkMode}) => {
     </div>
   );
 };
-
 
 export default Timeline;

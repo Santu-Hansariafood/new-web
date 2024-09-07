@@ -10,7 +10,7 @@ import ContactCover from "../../Images/Contact/contact.gif";
 import logo from "../../Images/Logo/Hansaria-Logo.png";
 import LazyImage from "../../components/common/LazyImage/LazyImage";
 
-const Contact = () => {
+const Contact = ({ darkMode }) => {
   const animationProps = useSpring({
     from: { opacity: 0, transform: "translate3d(0,-20px,0)" },
     to: { opacity: 1, transform: "translate3d(0,0px,0)" },
@@ -25,28 +25,49 @@ const Contact = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-green-100">
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen ${
+        darkMode ? "bg-gray-900 text-white" : "bg-green-100 text-black"
+      }`}
+    >
+      {/* Contact Cover Section */}
       <div
         className="relative w-full h-64 bg-cover bg-center"
         style={{ backgroundImage: `url(${ContactCover})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-5xl font-bold">
-            <span className="text-green-500">Contact</span>{" "}
-            <span className="text-yellow-500">Us</span>
+            <span
+              className={`${darkMode ? "text-green-500" : "text-green-600"}`}
+            >
+              Contact
+            </span>{" "}
+            <span
+              className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}
+            >
+              Us
+            </span>
           </h1>
         </div>
       </div>
+
+      {/* Company Information Section */}
       <div className="w-full p-6 flex flex-col md:flex-row items-center md:items-start">
         <div className="w-full md:w-1/2 flex items-center justify-center p-4">
           <LazyImage
             src={logo}
             alt="Placeholder"
-            className="rounded-lg shadow-lg"
+            className={`rounded-lg shadow-lg ${
+              darkMode ? "shadow-white" : "shadow-black"
+            }`}
           />
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-start p-4">
-          <p className="text-lg md:text-xl text-gray-700">
+          <p
+            className={`text-lg md:text-xl ${
+              darkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             Have a query about our range of high-quality seeds and grains? Wish
             to place an order? Simply fill up this form, and our team will get
             back to you promptly!
@@ -54,14 +75,27 @@ const Contact = () => {
         </div>
       </div>
 
+      {/* Head Office Section */}
       <div className="w-full p-6 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold mb-4">
-          <span className="text-yellow-500">Head</span>{" "}
-          <span className="text-green-500">Office</span>
+        <h2
+          className={`text-3xl font-bold mb-4 ${
+            darkMode ? "text-yellow-500" : "text-yellow-600"
+          }`}
+        >
+          <span
+            className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}
+          >
+            Head
+          </span>{" "}
+          <span className={`${darkMode ? "text-green-500" : "text-green-600"}`}>
+            Office
+          </span>
         </h2>
         <animated.div
           style={animationProps}
-          className="bg-white p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-3/4 lg:w-2/3"
+          className={`p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 w-full md:w-3/4 lg:w-2/3 ${
+            darkMode ? "bg-gray-800 shadow-gray-500" : "bg-white shadow-lg"
+          }`}
         >
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 p-4">
@@ -70,7 +104,10 @@ const Contact = () => {
                 width="100%"
                 height="250"
                 frameBorder="0"
-                style={{ border: "2px solid #4CAF50", borderRadius: "10px" }}
+                style={{
+                  border: `2px solid ${darkMode ? "#4CAF50" : "#D4D4D4"}`,
+                  borderRadius: "10px",
+                }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -78,30 +115,54 @@ const Contact = () => {
               ></iframe>
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center p-4">
-              <div className="flex items-center text-green-600 mb-4">
+              <div
+                className={`flex items-center mb-4 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaBuilding className="mr-2 text-yellow-500" />
                 <span className="font-bold">Hansaria Food Pvt Ltd</span>
               </div>
-              <div className="flex items-center text-green-600 mb-4">
+              <div
+                className={`flex items-center mb-4 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaMapMarkerAlt className="mr-2 text-yellow-500" />
-                <span className="">
+                <span>
                   Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector:
                   3, Bidhannagar, Kolkata, West Bengal 700098
                 </span>
               </div>
-              <div className="flex items-center text-green-600 mb-2">
+              <div
+                className={`flex items-center mb-2 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaPhoneAlt className="mr-2 text-yellow-500" />
                 <span>+91 33 2466 2179</span>
               </div>
-              <div className="flex items-center text-green-600 mb-2">
+              <div
+                className={`flex items-center mb-2 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaPhoneAlt className="mr-2 text-yellow-500" />
                 <span>+91 33 2466 2180</span>
               </div>
-              <div className="flex items-center text-green-600 mb-2">
+              <div
+                className={`flex items-center mb-2 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaPhoneAlt className="mr-2 text-yellow-500" />
                 <span>Customer care: +91 9073328273</span>
               </div>
-              <div className="flex items-center text-green-600">
+              <div
+                className={`flex items-center ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaEnvelope className="mr-2 text-yellow-500" />
                 <span>info@hansariafood.in</span>
               </div>
@@ -110,71 +171,71 @@ const Contact = () => {
         </animated.div>
       </div>
 
+      {/* Branch Offices Section */}
       <div className="w-full p-6 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold mb-4">
-          <span className="text-green-500">Branch </span>{" "}
-          <span className="text-yellow-500">Offices</span>
+        <h2
+          className={`text-3xl font-bold mb-4 ${
+            darkMode ? "text-green-500" : "text-green-600"
+          }`}
+        >
+          <span
+            className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}
+          >
+            Branch{" "}
+          </span>{" "}
+          <span className={`${darkMode ? "text-green-500" : "text-green-600"}`}>
+            Offices
+          </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
           {branchOffices.map((branch, index) => (
             <animated.div
               key={index}
               style={animationProps}
-              className="bg-white p-4 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+              className={`p-4 rounded-lg shadow-lg transform transition-transform hover:scale-105 ${
+                darkMode ? "bg-gray-800 shadow-gray-500" : "bg-white shadow-lg"
+              }`}
             >
-              <div className="flex items-center text-green-600 mb-2">
+              <div
+                className={`flex items-center mb-2 ${
+                  darkMode ? "text-gray-200" : "text-green-600"
+                }`}
+              >
                 <FaMapMarkerAlt className="mr-2 text-yellow-500" />
                 <span className="font-bold">{branch.name}</span>
               </div>
-              <p className="text-gray-700">{branch.address}</p>
+              <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                {branch.address}
+              </p>
             </animated.div>
           ))}
         </div>
-      </div>
 
-      <div className="w-full p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start relative z-10 min-h-full">
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start p-4 bg-green-600 text-white relative z-20 h-full">
-          <animated.div
-            style={animationProps}
-            className="mb-4 flex items-center"
+        {/* Visit Us Section */}
+        <div
+          className={`w-full mt-12 p-6 shadow-lg rounded-lg flex flex-col items-center justify-center ${
+            darkMode
+              ? "bg-gray-800 shadow-gray-500 text-gray-200"
+              : "bg-white shadow-lg text-black"
+          }`}
+        >
+          <h2
+            className={`text-3xl font-bold mb-8 ${
+              darkMode ? "text-yellow-500" : "text-yellow-600"
+            }`}
           >
-            <FaMapMarkerAlt className="mr-2 text-yellow-500" />
-            <span>
-              Plot No.1, Primarc Square, Salt Lake Bypass, LA Block, Sector: 3,
-              Bidhannagar, Kolkata, West Bengal 700098
+            <span
+              className={`${darkMode ? "text-yellow-500" : "text-yellow-600"}`}
+            >
+              Visit
+            </span>{" "}
+            <span
+              className={`${darkMode ? "text-green-500" : "text-green-600"}`}
+            >
+              Us
             </span>
-          </animated.div>
-          <animated.div
-            style={animationProps}
-            className="mb-4 flex items-center"
-          >
-            <FaPhoneAlt className="mr-2 text-yellow-500" />
-            <span>+91 33 2466 2179</span>
-          </animated.div>
-          <animated.div
-            style={animationProps}
-            className="mb-4 flex items-center"
-          >
-            <FaPhoneAlt className="mr-2 text-yellow-500" />
-            <span>+91 33 2466 2180</span>
-          </animated.div>
-          <animated.div
-            style={animationProps}
-            className="mb-4 flex items-center"
-          >
-            <FaPhoneAlt className="mr-2 text-yellow-500" />
-            <span>Customer care: +91 9073328273</span>
-          </animated.div>
-          <animated.div style={animationProps} className="flex items-center">
-            <FaEnvelope className="mr-2 text-yellow-500" />
-            <span>info@hansariafood.in</span>
-          </animated.div>
-        </div>
-        <div className="w-full md:w-1/2 p-4 relative z-20">
-          <h2 className="text-3xl font-bold text-green-600 mb-4">
-            Drop us a message
           </h2>
-          <form className="space-y-4">
+          <form className="space-y-4 w-full md:w-2/3 lg:w-1/2">
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
               <select
                 className="border p-2 rounded w-full"

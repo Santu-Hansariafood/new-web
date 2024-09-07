@@ -29,8 +29,8 @@ const CookieConsent = () => {
     <div className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 z-50">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between">
         <p className="mb-4 md:mb-0">
-          We uses cookies to improve your experience. By using our site, you
-          agree to our cookie policy.
+          Hansaria Food Pvt Ltd. uses cookies to improve your experience. By
+          using our site, you agree to our cookie policy.
         </p>
         <div className="flex space-x-2">
           <button
