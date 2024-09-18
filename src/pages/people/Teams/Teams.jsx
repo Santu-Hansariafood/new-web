@@ -43,8 +43,8 @@ const Teams = () => {
                 className="w-full h-60 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  {team.name}
+                <h3 className="text-lg font-bold text-green-900 dark:text-gray-200">
+                  {team.name}-<span className="text-lg text-red-500 dark:text-red-200">{team.position}</span>
                 </h3>
                 <p className="text-gray-700 dark:text-gray-400">
                   {team.designation}

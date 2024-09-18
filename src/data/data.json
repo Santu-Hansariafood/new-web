@@ -2,8 +2,8 @@
   "teamMembers": [
     {
       "id": 1,
-      "name": "John Doe",
-      "position": "CEO",
+      "name": "Partha Mitra",
+      "position": "Purchase Manager",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -12,8 +12,8 @@
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "position": "CTO",
+      "name": "Subir Roy",
+      "position": "Back Offce",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -22,8 +22,8 @@
     },
     {
       "id": 3,
-      "name": "Emily Johnson",
-      "position": "COO",
+      "name": "Sudeep Das",
+      "position": "Back Offce",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -32,8 +32,8 @@
     },
     {
       "id": 4,
-      "name": "Emily Johnson",
-      "position": "COO",
+      "name": "Uttam Das",
+      "position": "Account Head",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -73,7 +73,7 @@
   "leaders": [
     {
       "id": 1,
-      "name": "John Doe",
+      "name": "Gopal Agarwal",
       "position": "CEO",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
@@ -83,8 +83,8 @@
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "position": "CTO",
+      "name": "Dr. Sunita Agarwalla",
+      "position": "CEO",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -93,8 +93,8 @@
     },
     {
       "id": 3,
-      "name": "Emily Johnson",
-      "position": "COO",
+      "name": "Prince Surana",
+      "position": "Zonal Head",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
@@ -103,8 +103,8 @@
     },
     {
       "id": 4,
-      "name": "Michael Brown",
-      "position": "CFO",
+      "name": "Amit Kr Srivastav",
+      "position": "Zonal Head",
       "photo": "https://via.placeholder.com/150",
       "linkedin": "https://linkedin.com",
       "facebook": "https://facebook.com",
